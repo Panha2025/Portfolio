@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class"
+        };
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(24px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 rgba(34, 211, 238, 0); }
+            50% { box-shadow: 0 0 24px rgba(34, 211, 238, 0.25); }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 px-4 py-4 shadow-md backdrop-blur dark:border-slate-800 dark:bg-slate-900/90 md:px-8 lg:px-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
+            <a href="#home" class="shrink-0 text-xl font-semibold tracking-wide text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-300 md:text-2xl">My Portfolio</a>
+
+            <div id="mobile-menu" class="hidden flex-1 md:block">
+                <ul class="flex flex-col items-center gap-3 rounded-2xl bg-slate-50 p-4 text-center md:flex-row md:flex-nowrap md:justify-center md:gap-5 md:bg-transparent md:p-0 lg:gap-8 dark:bg-slate-800 md:dark:bg-transparent">
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#home"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Home</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#skills"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Skills</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#projects"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Projects</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#competition"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Competitions</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#volunteer"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Volunteer</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#contact"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Contact</span></a></li>
+                </ul>
+            </div>
+
+            <div class="flex shrink-0 items-center gap-3">
+                <button id="theme-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700 transition duration-300 hover:-translate-y-0.5 hover:rotate-12 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="menu-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700 transition duration-300 hover:-translate-y-0.5 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative overflow-hidden bg-slate-100 px-6 py-16 md:px-10 lg:py-24 dark:bg-slate-950">
+        <div class="absolute inset-x-0 top-0 h-px bg-cyan-400/40"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="animate-[fadeInUp_0.9s_ease-out]">
+                <p class="mb-4 inline-flex items-center gap-3 rounded-lg border border-cyan-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700 shadow-sm dark:border-cyan-900 dark:bg-slate-900 dark:text-cyan-300">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    Software Engineer
+                </p>
+                <h1 class="mb-5 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Meet me, Minh Ouddom Panha</h1>
+                <p class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I build clean, scalable web applications and solve technical problems across frontend and backend development.</p>
+
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#projects" class="inline-flex items-center gap-3 rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg shadow-slate-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-500 hover:shadow-cyan-200 dark:bg-cyan-400 dark:text-slate-950 dark:shadow-none dark:hover:bg-cyan-300">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>View Projects</span>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-emerald-400 dark:hover:text-emerald-300">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Contact Me</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-html5-plain colored mr-2"></i>HTML</span>
+                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-css3-plain colored mr-2"></i>CSS</span>
+                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-javascript-plain colored mr-2"></i>JavaScript</span>
+                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-react-original colored mr-2"></i>React</span>
+                </div>
+            </div>
+
+            <div class="flex justify-center lg:justify-end">
+                <div class="group relative">
+                    <div class="absolute -inset-4 rounded-full border border-cyan-200 bg-white/70 shadow-2xl shadow-slate-300 transition duration-500 group-hover:-translate-y-2 group-hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30"></div>
+                    <img src="profile.jpg" alt="Profile photo" class="relative h-72 w-72 animate-[float_4s_ease-in-out_infinite] rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 35%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="bg-slate-50 px-6 py-16 md:px-10 dark:bg-slate-900">
+        <h2 class="mb-10 text-center text-3xl font-bold">Skills</h2>
+
+        <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-2">
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">Programming Languages</h3>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-html5-plain colored mb-2 block text-4xl"></i><p class="font-medium">HTML</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-css3-plain colored mb-2 block text-4xl"></i><p class="font-medium">CSS</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-javascript-plain colored mb-2 block text-4xl"></i><p class="font-medium">JavaScript</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" class="mx-auto mb-2 block h-12 w-12 object-contain"><p class="font-medium">Python</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-java-plain colored mb-2 block text-4xl"></i><p class="font-medium">Java</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ logo" class="mx-auto mb-2 block h-12 w-12 object-contain"><p class="font-medium">C++</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-php-plain colored mb-2 block text-4xl"></i><p class="font-medium">PHP</p></div>
+                </div>
+            </div>
+
+            <div class="min-h-[250px] rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">Frameworks</h3>
+                <div class="mt-4 flex flex-wrap justify-center gap-5">
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-tailwindcss-original colored mb-2 block text-4xl"></i><p class="font-medium">Tailwind</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-laravel-original colored mb-2 block text-4xl"></i><p class="font-medium">Laravel</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-react-original colored mb-2 block text-4xl"></i><p class="font-medium">React</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-nodejs-plain-wordmark colored mb-2 block text-4xl"></i><p class="font-medium">Node.js</p></div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">Databases</h3>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-mongodb-plain colored mb-2 block text-4xl"></i><p class="font-medium">MongoDB</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-mysql-plain colored mb-2 block text-4xl"></i><p class="font-medium">MySQL</p></div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">Tools</h3>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-git-plain colored mb-2 block text-4xl"></i><p class="font-medium">Git</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-github-original mb-2 block text-4xl text-gray-900 dark:text-white"></i><p class="font-medium">GitHub</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-figma-plain colored mb-2 block text-4xl"></i><p class="font-medium">Figma</p></div>
+                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-amazonwebservices-plain-wordmark colored mb-2 block text-4xl"></i><p class="font-medium">AWS</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
+        <h2 class="mb-10 text-center text-3xl font-bold">Projects</h2>
+
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
+            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-56 overflow-hidden bg-gray-200">
+                    <img src="Bank.png" alt="Bank Management System project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="flex flex-1 flex-col p-6">
+                    <h3 class="mb-3 text-xl font-semibold">Bank Management System</h3>
+                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A comprehensive solution for managing banking operations and customer data.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://github.com/Panha2025/Bank_Management" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-56 overflow-hidden bg-gray-200">
+                    <img src="AI.png" alt="AI Sign Language Translator project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="flex flex-1 flex-col p-6">
+                    <h3 class="mb-3 text-xl font-semibold">AI-Sign Language Translator</h3>
+                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A machine learning-based application for translating sign language to text and vice versa.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://github.com/Panha2025/AI-SignLanguage-Detector" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-56 overflow-hidden bg-gray-200">
+                    <img src="chatbot.png" alt="Movie ChatBOT project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="flex flex-1 flex-col p-6">
+                    <h3 class="mb-3 text-xl font-semibold">Movie-ChatBOT</h3>
+                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A real-time chatbot application for movie recommendations.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="https://github.com/Panha2025/Movies-Chatbot" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="competition" class="bg-slate-50 px-6 py-16 md:px-10 dark:bg-slate-900">
+        <h2 class="mb-10 text-center text-3xl font-bold">Competitions</h2>
+
+        <div class="mx-auto max-w-3xl">
+            <article class="overflow-hidden rounded-2xl bg-white text-center shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-64 overflow-hidden bg-gray-200">
+                    <img src="competition.JPG" alt="AI in Education Hackathon event photo" class="h-full w-full object-cover object-[center_35%] transition duration-500 hover:scale-110">
+                </div>
+                <div class="p-8">
+                    <h3 class="mb-3 text-2xl font-semibold">AI in Education Hackathon</h3>
+                    <p class="mb-4 font-medium text-blue-600">Top 3 in Best Educational Technology Innovation</p>
+                    <p class="text-gray-600 dark:text-slate-300">This competition showcased my ability to apply AI techniques to solve real-world problems in the field of education.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="volunteer" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
+        <h2 class="mb-10 text-center text-3xl font-bold">Volunteer Work</h2>
+
+        <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="aiesec1.jpg" alt="AIESEC Cambodia volunteer work" class="h-full w-full scale-105 object-cover transition duration-500 hover:scale-110" style="object-position: 47% 65%;"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">AIESEC Cambodia</h3><p class="text-gray-600 dark:text-slate-300">Responsible for the Out-Going-Exchange program.</p></div>
+            </article>
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="camtesol.jpg" alt="CamTesol volunteer work" class="h-full w-full object-cover transition duration-500 hover:scale-110"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">CamTESOL</h3><p class="text-gray-600 dark:text-slate-300">Provided technical support and facilitation services.</p></div>
+            </article>
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="digital_forum.jpg" alt="Digital Government Forum volunteer work" class="h-full w-full object-cover transition duration-500 hover:scale-110"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">Digital Government Forum</h3><p class="text-gray-600 dark:text-slate-300">Represented the AUPP booth to showcase new technologies.</p></div>
+            </article>
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="expert.jpg" alt="Expert Education volunteer work" class="h-full w-full object-cover transition duration-500 hover:scale-110" style="object-position: center 20%;"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">Expert Education</h3><p class="text-gray-600 dark:text-slate-300">Provided translation and consultation services.</p></div>
+            </article>
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="AMSBB.JPG" alt="AMS BridgeBlue volunteer work" class="h-full w-full object-cover transition duration-500 hover:scale-110"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">AMS BridgeBlue</h3><p class="text-gray-600 dark:text-slate-300">Provided translation and consultation services.</p></div>
+            </article>
+            <article class="overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
+                <div class="h-48 overflow-hidden bg-gray-200"><img src="ACE.jpg" alt="ACE Graduation volunteer work" class="h-full w-full object-cover transition duration-500 hover:scale-110" style="object-position: center 20%;"></div>
+                <div class="p-6"><h3 class="mb-3 text-xl font-semibold">ACE Graduation</h3><p class="text-gray-600 dark:text-slate-300">Provided support for the graduation ceremony.</p></div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-slate-950 px-6 py-20 text-slate-100 md:px-10">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div class="animate-[fadeInUp_1s_ease-out]">
+                <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300">Let's Connect</p>
+                <h2 class="mb-5 text-3xl font-bold leading-tight md:text-4xl">Contact Me</h2>
+                <p class="mb-8 max-w-xl text-lg leading-8 text-slate-300">Have a project, collaboration, or opportunity in mind? Send me a message and I will get back to you.</p>
+
+                <div class="space-y-4">
+                    <a href="mailto:minh.oudompanha@example.com" class="group flex min-w-0 items-center gap-4 rounded-lg border border-slate-800 bg-slate-900/80 p-4 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-slate-900">
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-lg text-slate-950"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="min-w-0">
+                            <span class="block text-sm text-slate-400">Email</span>
+                            <span class="block font-semibold text-white group-hover:text-emerald-200">minh.oudompanha@example.com</span>
+                        </span>
+                    </a>
+
+                    <a href="tel:017523550" class="group flex min-w-0 items-center gap-4 rounded-lg border border-slate-800 bg-slate-900/80 p-4 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-slate-900">
+                        <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-emerald-400 text-lg text-slate-950"><i class="fa-solid fa-phone"></i></span>
+                        <span>
+                            <span class="block text-sm text-slate-400">Phone</span>
+                            <span class="block font-semibold text-white group-hover:text-emerald-200">017 523 550</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="https://github.com/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://t.me/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="files/minh-ouddom-panha-cv.pdf" download class="inline-flex items-center gap-3 rounded-lg bg-emerald-400 px-4 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-emerald-300">
+                        <i class="fa-solid fa-download"></i>
+                        <span>CV</span>
+                    </a>
+                </div>
+            </div>
+
+            <form action="mailto:minh.oudompanha@example.com" method="post" enctype="text/plain" class="rounded-lg border border-emerald-900/60 bg-slate-900/90 p-6 shadow-2xl shadow-emerald-950/30 md:p-8">
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="block">
+                        <span class="mb-2 block text-sm font-medium text-slate-300">Name</span>
+                        <input type="text" name="name" required class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Your name">
+                    </label>
+
+                    <label class="block">
+                        <span class="mb-2 block text-sm font-medium text-slate-300">Email</span>
+                        <input type="email" name="email" required class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="you@example.com">
+                    </label>
+                </div>
+
+                <label class="mt-5 block">
+                    <span class="mb-2 block text-sm font-medium text-slate-300">Subject</span>
+                    <input type="text" name="subject" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Project or opportunity">
+                </label>
+
+                <label class="mt-5 block">
+                    <span class="mb-2 block text-sm font-medium text-slate-300">Message</span>
+                    <textarea name="message" rows="5" required class="w-full resize-none rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Write your message"></textarea>
+                </label>
+
+                <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-emerald-400 px-5 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-emerald-300 sm:w-auto">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Send Message</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const themeToggle = document.getElementById("theme-toggle");
+        const root = document.documentElement;
+
+        menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        themeToggle.addEventListener("click", () => {
+            root.classList.toggle("dark");
+        });
+    </script>
+</body>
+</html>
