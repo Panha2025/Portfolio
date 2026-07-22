@@ -1,7 +1,5 @@
 # Personal Portfolio
-
-A responsive personal portfolio website for Minh Ouddom Panha, built with HTML, Tailwind CSS, JavaScript, Font Awesome, and Devicon. The site presents my software engineering profile, technical skills, featured projects, competition experience, volunteer work, and contact information in a clean single-page layout.
-
+This is my portfolio.
 ## Features
 
 - Responsive navigation with mobile menu support
@@ -17,7 +15,6 @@ A responsive personal portfolio website for Minh Ouddom Panha, built with HTML, 
 - HTML
 - Tailwind CSS
 - JavaScript
-- Font Awesome
 - Devicon
 
 ## Sections
@@ -37,4 +34,4 @@ A responsive personal portfolio website for Minh Ouddom Panha, built with HTML, 
 
 ## How To View
 
-Open `myportfolio.html` in a browser, or deploy the project with GitHub Pages.
+Open `https://panha2025.github.io/Portfolio/` in a browser, or deploy the project with GitHub Pages.
