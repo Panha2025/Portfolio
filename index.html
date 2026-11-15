@@ -27,6 +27,84 @@
             0%, 100% { box-shadow: 0 0 0 rgba(34, 211, 238, 0); }
             50% { box-shadow: 0 0 24px rgba(34, 211, 238, 0.25); }
         }
+
+        :root { scroll-padding-top: 6rem; }
+        section[id] { scroll-margin-top: 6rem; }
+
+        @keyframes heroEnter {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-sequence > * {
+            animation: heroEnter 620ms cubic-bezier(.22, 1, .36, 1) both;
+            animation-delay: calc(var(--hero-order, 0) * 85ms);
+        }
+
+        .hero-photo {
+            animation: heroEnter 760ms cubic-bezier(.22, 1, .36, 1) 220ms both;
+        }
+
+        html.motion-ready [data-reveal]:not(.is-visible) {
+            opacity: 0;
+            transform: translateY(18px);
+        }
+
+        [data-reveal] {
+            transition: opacity 620ms cubic-bezier(.22, 1, .36, 1),
+                        transform 620ms cubic-bezier(.22, 1, .36, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+        }
+
+        #projects article, #founder figure, #experience article, #competition article,
+        #skills .grid > div {
+            transition: transform 300ms cubic-bezier(.22, 1, .36, 1),
+                        box-shadow 300ms cubic-bezier(.22, 1, .36, 1),
+                        opacity 620ms cubic-bezier(.22, 1, .36, 1);
+        }
+
+        html body #projects article:hover,
+        html body #founder figure:hover,
+        html body #experience article:hover,
+        html body #competition article:hover,
+        html body #skills .grid > div:hover { transform: translateY(-7px); }
+
+        #projects article img, #founder figure img, #competition article img,
+        #experience article img { transition: transform 550ms cubic-bezier(.22, 1, .36, 1); }
+
+        #projects article:hover img, #founder figure:hover img,
+        #competition article:hover img, #experience article:hover img { transform: scale(1.04); }
+
+        #skills .grid > div > div > div { transition: transform 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 260ms ease; }
+        #skills .grid > div > div > div:hover { transform: translateY(-4px) scale(1.035); box-shadow: 0 10px 18px rgb(15 23 42 / 0.12); }
+        #skills .grid > div > div > div i, #skills .grid > div > div > div img { transition: transform 260ms cubic-bezier(.22, 1, .36, 1); }
+        #skills .grid > div > div > div:hover i, #skills .grid > div > div > div:hover img { transform: scale(1.05); }
+
+        a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
+        a > i { transition: transform 220ms cubic-bezier(.22, 1, .36, 1); }
+        a:hover > i { transform: translateX(2px); }
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid rgb(34 211 238 / 0.72);
+            outline-offset: 3px;
+        }
+        #mobile-menu { transition: opacity 220ms ease, transform 220ms cubic-bezier(.22, 1, .36, 1); }
+        #mobile-menu:not(.hidden) { opacity: 0; transform: translateY(-8px); }
+        #mobile-menu.menu-open { opacity: 1; transform: translateY(0); }
+        nav a[aria-current="location"] span::after { width: 100%; }
+        #contact-form-feedback:not(:empty) { animation: heroEnter 260ms ease-out both; }
+        a:active, button:active { transform: scale(.98); }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                transition-delay: 0ms !important;
+            }
+            html.motion-ready [data-reveal]:not(.is-visible) { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
@@ -60,26 +138,26 @@
     <section id="home" class="relative overflow-hidden bg-slate-100 px-6 py-16 md:px-10 lg:py-24 dark:bg-slate-950">
     <div class="absolute inset-x-0 top-0 h-px bg-cyan-400/40"></div>
     <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="animate-[fadeInUp_0.9s_ease-out]">
-            <p class="mb-4 inline-flex items-center gap-3 rounded-lg border border-cyan-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 shadow-sm dark:border-cyan-900 dark:bg-slate-900 dark:text-cyan-300">
+        <div class="hero-sequence">
+            <p style="--hero-order: 0" class="mb-4 inline-flex items-center gap-3 rounded-lg border border-cyan-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 shadow-sm dark:border-cyan-900 dark:bg-slate-900 dark:text-cyan-300">
                 <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                 Founder of Vendora
             </p>
-            <h1 class="mb-4 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Minh Ouddom Panha</h1>
-            <p class="mb-5 text-lg font-semibold text-cyan-700 dark:text-cyan-300 md:text-xl">Founder of Vendora <span aria-hidden="true">|</span> ICT Student <span aria-hidden="true">|</span> Aspiring Software Engineer</p>
-            <p class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I’m interested in technology, software development, and entrepreneurship, and I enjoy building practical solutions for everyday needs. I founded Vendora, a Cambodian marketplace connecting buyers and sellers of new and second-hand products.</p>
-            <div class="mt-8 flex flex-wrap gap-4">
+            <h1 style="--hero-order: 1" class="mb-4 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Minh Ouddom Panha</h1>
+            <p style="--hero-order: 2" class="mb-5 text-lg font-semibold text-cyan-700 dark:text-cyan-300 md:text-xl">Founder of Vendora <span aria-hidden="true">|</span> ICT Student <span aria-hidden="true">|</span> Aspiring Software Engineer</p>
+            <p style="--hero-order: 3" class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I’m interested in technology, software development, and entrepreneurship, and I enjoy building practical solutions for everyday needs. I founded Vendora, a Cambodian marketplace connecting buyers and sellers of new and second-hand products.</p>
+            <div style="--hero-order: 4" class="mt-8 flex flex-wrap gap-4">
                 <a href="#projects" class="inline-flex items-center gap-3 rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg shadow-slate-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-500 hover:shadow-cyan-200 dark:bg-cyan-400 dark:text-slate-950 dark:shadow-none dark:hover:bg-cyan-300"><i class="fa-solid fa-folder-open" aria-hidden="true"></i><span>View Projects</span></a>
                 <a href="#contact" class="inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-emerald-400 dark:hover:text-emerald-300"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Contact Me</span></a>
             </div>
-            <div class="mt-8 flex flex-wrap gap-3">
+            <div style="--hero-order: 5" class="mt-8 flex flex-wrap gap-3">
                 <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-html5-plain colored mr-2" aria-hidden="true"></i>HTML</span>
                 <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-css3-plain colored mr-2" aria-hidden="true"></i>CSS</span>
                 <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-javascript-plain colored mr-2" aria-hidden="true"></i>JavaScript</span>
                 <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-react-original colored mr-2" aria-hidden="true"></i>React</span>
             </div>
         </div>
-        <div class="flex justify-center lg:justify-end">
+        <div class="hero-photo flex justify-center lg:justify-end">
             <div class="group relative">
                 <div class="absolute -inset-4 rounded-full border border-cyan-200 bg-white/70 shadow-2xl shadow-slate-300 transition duration-500 group-hover:-translate-y-2 group-hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30"></div>
                 <img src="Professional%20Pic.jpg" alt="Minh Ouddom Panha" class="relative h-72 w-72 animate-[float_4s_ease-in-out_infinite] rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 32%;">
@@ -173,17 +251,17 @@
     <section id="projects" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
     <h2 class="mb-10 text-center text-3xl font-bold">Projects</h2>
     <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
-            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Vendora%20Website.jpg" alt="Vendora Cambodian marketplace website preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
-            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Vendora — Cambodian Online Marketplace</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A Cambodian online marketplace startup connecting buyers and sellers of new and second-hand products, with tools for product listings, search, communication, and marketplace management.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">React · Laravel · PostgreSQL · Modern web technologies</p><a href="https://vendorakh.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Visit Website</span></a></div>
+        <article class="project-card group flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Vendora%20Website.jpg" alt="Vendora Cambodian marketplace website preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Vendora — Cambodian Online Marketplace</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A Cambodian marketplace connecting buyers and sellers of new and second-hand products.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">React · Laravel · PostgreSQL · Modern web technologies</p><a href="https://vendorakh.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Visit Website</span></a></div>
         </article>
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
-            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Student%20Management%20System.jpg" alt="Student Management System dashboard preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
-            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Student Management System</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A responsive web application for adding, editing, deleting, searching, and filtering student records, with validation, statistics, and a user-friendly dashboard.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">HTML · CSS · JavaScript · API integration</p><a href="https://github.com/Panha2025/Student-Management-System" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        <article class="project-card group flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Student%20Management%20System.jpg" alt="Student Management System dashboard preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Student Management System</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A responsive web application for managing student records, searching, filtering, and viewing statistics.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">HTML · CSS · JavaScript · API integration</p><a href="https://github.com/Panha2025/Student-Management-System" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
-            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Schedule%20Planner.jpg" alt="MyPlanner schedule and task manager preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
-            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">MyPlanner — Smart Schedule &amp; Task Manager</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A task and schedule management application for organizing daily activities, managing reminders, and improving productivity, with task management, scheduling, and smart assistant features.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">Web technologies · Scheduling · Productivity tools</p><a href="https://github.com/Panha2025/Schedule_Tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        <article class="project-card group flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Schedule%20Planner.jpg" alt="MyPlanner schedule and task manager preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">MyPlanner — Smart Schedule &amp; Task Manager</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A smart task and schedule planner featuring reminders, productivity tools, and an AI assistant.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">Web technologies · Scheduling · Productivity tools</p><a href="https://github.com/Panha2025/Schedule_Tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
         <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
             <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Bank.png" alt="Bank Management System project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
@@ -332,20 +410,31 @@
         const mobileMenu = document.getElementById("mobile-menu");
         const themeToggle = document.getElementById("theme-toggle");
         const root = document.documentElement;
+        let menuCloseTimer;
+
+        const closeMobileMenu = () => {
+            mobileMenu.classList.remove("menu-open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open menu");
+            window.clearTimeout(menuCloseTimer);
+            menuCloseTimer = window.setTimeout(() => mobileMenu.classList.add("hidden"), 230);
+        };
 
         menuToggle.addEventListener("click", () => {
             const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-            menuToggle.setAttribute("aria-expanded", String(!isExpanded));
-            menuToggle.setAttribute("aria-label", isExpanded ? "Open menu" : "Close menu");
-            mobileMenu.classList.toggle("hidden");
+            if (isExpanded) {
+                closeMobileMenu();
+                return;
+            }
+            window.clearTimeout(menuCloseTimer);
+            mobileMenu.classList.remove("hidden");
+            menuToggle.setAttribute("aria-expanded", "true");
+            menuToggle.setAttribute("aria-label", "Close menu");
+            requestAnimationFrame(() => mobileMenu.classList.add("menu-open"));
         });
 
         mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
-            link.addEventListener("click", () => {
-                mobileMenu.classList.add("hidden");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.setAttribute("aria-label", "Open menu");
-            });
+            link.addEventListener("click", closeMobileMenu);
         });
 
         themeToggle.addEventListener("click", () => {
@@ -380,6 +469,50 @@
             formFeedback.textContent = "This site does not send messages directly. Your email app will open with a prepared draft; review it and press Send there.";
             window.location.href = mailto;
         });
+
+        const motionTargets = document.querySelectorAll(
+            "#founder h2, #founder > div > div > p, #founder .rounded-2xl, #founder figure, #skills h2, #skills .grid > div, #skills .grid > div > div > div, #projects h2, #projects article, #competition h2, #competition article, #experience h2, #experience h3, #experience article, #contact > div > div, #contact form"
+        );
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reducedMotion && "IntersectionObserver" in window) {
+            const motionTargetSet = new Set(motionTargets);
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+
+            motionTargets.forEach((target) => {
+                target.setAttribute("data-reveal", "");
+                const siblings = Array.from(target.parentElement.children).filter((item) => motionTargetSet.has(item));
+                const siblingIndex = siblings.indexOf(target);
+                target.style.setProperty("--reveal-delay", `${Math.min(Math.max(siblingIndex, 0), 4) * 75}ms`);
+                const bounds = target.getBoundingClientRect();
+                if (bounds.bottom >= 0 && bounds.top <= window.innerHeight) target.classList.add("is-visible");
+                else revealObserver.observe(target);
+            });
+
+            root.classList.add("motion-ready");
+        }
+
+        if ("IntersectionObserver" in window) {
+            const sectionLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    sectionLinks.forEach((link) => {
+                        if (link.getAttribute("href") === `#${entry.target.id}`) link.setAttribute("aria-current", "location");
+                        else link.removeAttribute("aria-current");
+                    });
+                });
+            }, { rootMargin: "-18% 0px -68% 0px", threshold: 0 });
+
+            document.querySelectorAll("main section[id], body > section[id]").forEach((section) => sectionObserver.observe(section));
+        }
     </script>
 </body>
 </html>
