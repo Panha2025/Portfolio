@@ -37,8 +37,10 @@
             <div id="mobile-menu" class="hidden flex-1 md:block">
                 <ul class="flex flex-col items-center gap-3 rounded-2xl bg-slate-50 p-4 text-center md:flex-row md:flex-nowrap md:justify-center md:gap-5 md:bg-transparent md:p-0 lg:gap-8 dark:bg-slate-800 md:dark:bg-transparent">
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#home"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Home</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#founder"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Vendora</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#skills"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Skills</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#projects"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Projects</span></a></li>
+                    <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#experience"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Experience</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#competition"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Competitions</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#volunteer"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Volunteer</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#contact"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Contact</span></a></li>
@@ -50,7 +52,7 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
-                <button id="menu-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700 transition duration-300 hover:-translate-y-0.5 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Open menu">
+                <button id="menu-toggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700 transition duration-300 hover:-translate-y-0.5 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -58,43 +60,65 @@
     </nav>
 
     <section id="home" class="relative overflow-hidden bg-slate-100 px-6 py-16 md:px-10 lg:py-24 dark:bg-slate-950">
-        <div class="absolute inset-x-0 top-0 h-px bg-cyan-400/40"></div>
-        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div class="animate-[fadeInUp_0.9s_ease-out]">
-                <p class="mb-4 inline-flex items-center gap-3 rounded-lg border border-cyan-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700 shadow-sm dark:border-cyan-900 dark:bg-slate-900 dark:text-cyan-300">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                    Software Engineer
-                </p>
-                <h1 class="mb-5 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Meet me, Minh Ouddom Panha</h1>
-                <p class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I build clean, scalable web applications and solve technical problems across frontend and backend development.</p>
-
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="#projects" class="inline-flex items-center gap-3 rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg shadow-slate-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-500 hover:shadow-cyan-200 dark:bg-cyan-400 dark:text-slate-950 dark:shadow-none dark:hover:bg-cyan-300">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <span>View Projects</span>
-                    </a>
-                    <a href="#contact" class="inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-emerald-400 dark:hover:text-emerald-300">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Contact Me</span>
-                    </a>
-                </div>
-
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-html5-plain colored mr-2"></i>HTML</span>
-                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-css3-plain colored mr-2"></i>CSS</span>
-                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-javascript-plain colored mr-2"></i>JavaScript</span>
-                    <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-react-original colored mr-2"></i>React</span>
-                </div>
+    <div class="absolute inset-x-0 top-0 h-px bg-cyan-400/40"></div>
+    <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="animate-[fadeInUp_0.9s_ease-out]">
+            <p class="mb-4 inline-flex items-center gap-3 rounded-lg border border-cyan-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 shadow-sm dark:border-cyan-900 dark:bg-slate-900 dark:text-cyan-300">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                Founder of Vendora
+            </p>
+            <h1 class="mb-4 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Minh Ouddom Panha</h1>
+            <p class="mb-5 text-lg font-semibold text-cyan-700 dark:text-cyan-300 md:text-xl">Founder of Vendora <span aria-hidden="true">|</span> ICT Student <span aria-hidden="true">|</span> Aspiring Software Engineer</p>
+            <p class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I’m interested in technology, software development, and entrepreneurship, and I enjoy building practical solutions for everyday needs. I founded Vendora, a Cambodian marketplace connecting buyers and sellers of new and second-hand products.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="#projects" class="inline-flex items-center gap-3 rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg shadow-slate-300 transition duration-300 hover:-translate-y-1 hover:bg-cyan-500 hover:shadow-cyan-200 dark:bg-cyan-400 dark:text-slate-950 dark:shadow-none dark:hover:bg-cyan-300"><i class="fa-solid fa-folder-open" aria-hidden="true"></i><span>View Projects</span></a>
+                <a href="#contact" class="inline-flex items-center gap-3 rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-emerald-400 dark:hover:text-emerald-300"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i><span>Contact Me</span></a>
             </div>
-
-            <div class="flex justify-center lg:justify-end">
-                <div class="group relative">
-                    <div class="absolute -inset-4 rounded-full border border-cyan-200 bg-white/70 shadow-2xl shadow-slate-300 transition duration-500 group-hover:-translate-y-2 group-hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30"></div>
-                    <img src="profile.jpg" alt="Profile photo" class="relative h-72 w-72 animate-[float_4s_ease-in-out_infinite] rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 35%;">
-                </div>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-html5-plain colored mr-2" aria-hidden="true"></i>HTML</span>
+                <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-css3-plain colored mr-2" aria-hidden="true"></i>CSS</span>
+                <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-javascript-plain colored mr-2" aria-hidden="true"></i>JavaScript</span>
+                <span class="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-cyan-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"><i class="devicon-react-original colored mr-2" aria-hidden="true"></i>React</span>
             </div>
         </div>
-    </section>
+        <div class="flex justify-center lg:justify-end">
+            <div class="group relative">
+                <div class="absolute -inset-4 rounded-full border border-cyan-200 bg-white/70 shadow-2xl shadow-slate-300 transition duration-500 group-hover:-translate-y-2 group-hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30"></div>
+                <img src="Professional%20Pic.jpg" alt="Minh Ouddom Panha" class="relative h-72 w-72 animate-[float_4s_ease-in-out_infinite] rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 32%;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="founder" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
+    <div class="mx-auto max-w-7xl">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-cyan-700 dark:text-cyan-300">Entrepreneurship</p>
+            <h2 class="mb-3 text-3xl font-bold text-slate-950 dark:text-white md:text-4xl">Founder of Vendora</h2>
+            <p class="text-lg font-medium text-slate-600 dark:text-slate-300">Building a Marketplace for Cambodia</p>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-6 shadow-lg dark:bg-slate-900 md:p-8">
+            <p class="mx-auto max-w-4xl text-center text-base leading-8 text-slate-600 dark:text-slate-300">Vendora is a Cambodian startup marketplace that helps individuals, students, and small businesses buy and sell new, second-hand, and unused products. As founder, I develop and improve the platform, build technical solutions for marketplace functionality, collaborate with local business partners, and promote the startup through university events and booths. I focus on user experience, trust, accessibility, and steady platform growth.</p>
+            <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+                    <img src="1%20Vendora%20Booth.jpg" alt="Vendora booth at a university event, photo one" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
+                    <figcaption class="sr-only">Vendora booth photo 1 of 3</figcaption>
+                </figure>
+                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+                    <img src="2%20Vendora%20Booth.jpg" alt="Visitors viewing products at the Vendora booth, photo two" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
+                    <figcaption class="sr-only">Vendora booth photo 2 of 3</figcaption>
+                </figure>
+                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+                    <img src="3%20Vendora%20Booth.jpg" alt="Minh presenting Vendora marketplace products at a booth, photo three" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
+                    <figcaption class="sr-only">Vendora booth photo 3 of 3</figcaption>
+                </figure>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="https://vendorakh.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 rounded-lg bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-cyan-500 dark:bg-cyan-400 dark:text-slate-950 dark:hover:bg-cyan-300"><span>Visit Vendora Website</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section id="skills" class="bg-slate-50 px-6 py-16 md:px-10 dark:bg-slate-900">
         <h2 class="mb-10 text-center text-3xl font-bold">Skills</h2>
@@ -144,52 +168,34 @@
     </section>
 
     <section id="projects" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
-        <h2 class="mb-10 text-center text-3xl font-bold">Projects</h2>
-
-        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
-                <div class="h-56 overflow-hidden bg-gray-200">
-                    <img src="Bank.png" alt="Bank Management System project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
-                </div>
-                <div class="flex flex-1 flex-col p-6">
-                    <h3 class="mb-3 text-xl font-semibold">Bank Management System</h3>
-                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A comprehensive solution for managing banking operations and customer data.</p>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://github.com/Panha2025/Bank_Management" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
-                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
-                <div class="h-56 overflow-hidden bg-gray-200">
-                    <img src="AI.png" alt="AI Sign Language Translator project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
-                </div>
-                <div class="flex flex-1 flex-col p-6">
-                    <h3 class="mb-3 text-xl font-semibold">AI-Sign Language Translator</h3>
-                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A machine learning-based application for translating sign language to text and vice versa.</p>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://github.com/Panha2025/AI-SignLanguage-Detector" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
-                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-3 hover:shadow-2xl dark:bg-slate-800">
-                <div class="h-56 overflow-hidden bg-gray-200">
-                    <img src="chatbot.png" alt="Movie ChatBOT project preview" class="h-full w-full object-cover transition duration-500 hover:scale-110">
-                </div>
-                <div class="flex flex-1 flex-col p-6">
-                    <h3 class="mb-3 text-xl font-semibold">Movie-ChatBOT</h3>
-                    <p class="mb-6 flex-1 text-gray-600 dark:text-slate-300">A real-time chatbot application for movie recommendations.</p>
-                    <div class="grid grid-cols-2 gap-3">
-                        <a href="https://github.com/Panha2025/Movies-Chatbot" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
-                        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-900 transition duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-300"><i class="fa-solid fa-circle-info"></i><span>Details</span></a>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
+    <h2 class="mb-10 text-center text-3xl font-bold">Projects</h2>
+    <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Vendora%20Website.jpg" alt="Vendora Cambodian marketplace website preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Vendora — Cambodian Online Marketplace</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A Cambodian online marketplace startup connecting buyers and sellers of new and second-hand products, with tools for product listings, search, communication, and marketplace management.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">React · Laravel · PostgreSQL · Modern web technologies</p><a href="https://vendorakh.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Visit Website</span></a></div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Student%20Management%20System.jpg" alt="Student Management System dashboard preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Student Management System</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A responsive web application for adding, editing, deleting, searching, and filtering student records, with validation, statistics, and a user-friendly dashboard.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">HTML · CSS · JavaScript · API integration</p><a href="https://github.com/Panha2025/Student-Management-System" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Schedule%20Planner.jpg" alt="MyPlanner schedule and task manager preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">MyPlanner — Smart Schedule &amp; Task Manager</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A task and schedule management application for organizing daily activities, managing reminders, and improving productivity, with task management, scheduling, and smart assistant features.</p><p class="mb-5 text-sm font-medium text-cyan-700 dark:text-cyan-300">Web technologies · Scheduling · Productivity tools</p><a href="https://github.com/Panha2025/Schedule_Tracker" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Bank.png" alt="Bank Management System project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Bank Management System</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A comprehensive solution for managing banking operations and customer data.</p><a href="https://github.com/Panha2025/Bank_Management" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="AI.png" alt="AI Sign Language Translator project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">AI-Sign Language Translator</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A machine learning-based application for translating sign language to text and vice versa.</p><a href="https://github.com/Panha2025/AI-SignLanguage-Detector" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        </article>
+        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="chatbot.png" alt="Movie ChatBOT project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
+            <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Movie-ChatBOT</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A real-time chatbot application for movie recommendations.</p><a href="https://github.com/Panha2025/Movies-Chatbot" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
+        </article>
+    </div>
+</section>
 
     <section id="competition" class="bg-slate-50 px-6 py-16 md:px-10 dark:bg-slate-900">
         <h2 class="mb-10 text-center text-3xl font-bold">Competitions</h2>
@@ -207,6 +213,16 @@
             </article>
         </div>
     </section>
+
+    <section id="experience" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
+    <h2 class="mb-10 text-center text-3xl font-bold">Experience / Internship</h2>
+    <div class="mx-auto max-w-3xl">
+        <article class="overflow-hidden rounded-2xl bg-gray-50 text-center shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+            <div class="h-64 overflow-hidden bg-gray-200 md:h-80"><img src="Internship%20at%20DGC.jpg" alt="Minh during his technical support internship at the Digital Government Committee" loading="lazy" decoding="async" class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"></div>
+            <div class="p-8"><p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300">Internship</p><h3 class="mb-3 text-2xl font-semibold">Technical Support Intern — Digital Government Committee</h3><p class="text-gray-600 dark:text-slate-300">Supported technical operations and digital initiatives at the Digital Government Committee, gaining practical experience in technical support, digital systems, and working in a professional technology-focused environment.</p></div>
+        </article>
+    </div>
+</section>
 
     <section id="volunteer" class="bg-white px-6 py-16 md:px-10 dark:bg-slate-950">
         <h2 class="mb-10 text-center text-3xl font-bold">Volunteer Work</h2>
@@ -247,11 +263,11 @@
                 <p class="mb-8 max-w-xl text-lg leading-8 text-slate-300">Have a project, collaboration, or opportunity in mind? Send me a message and I will get back to you.</p>
 
                 <div class="space-y-4">
-                    <a href="mailto:minh.oudompanha@example.com" class="group flex min-w-0 items-center gap-4 rounded-lg border border-slate-800 bg-slate-900/80 p-4 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-slate-900">
+                    <a href="mailto:minh.ouddompanha@gmail.com" class="group flex min-w-0 items-center gap-4 rounded-lg border border-slate-800 bg-slate-900/80 p-4 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-slate-900">
                         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-lg text-slate-950"><i class="fa-solid fa-envelope"></i></span>
                         <span class="min-w-0">
                             <span class="block text-sm text-slate-400">Email</span>
-                            <span class="block font-semibold text-white group-hover:text-emerald-200">minh.oudompanha@example.com</span>
+                            <span class="block font-semibold text-white group-hover:text-emerald-200">minh.ouddompanha@gmail.com</span>
                         </span>
                     </a>
 
@@ -269,56 +285,97 @@
                     <a href="https://www.linkedin.com/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://t.me/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
                     <a href="https://www.facebook.com/" class="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-lg text-white transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:text-emerald-300" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="files/minh-ouddom-panha-cv.pdf" download class="inline-flex items-center gap-3 rounded-lg bg-emerald-400 px-4 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-emerald-300">
+                    <a href="files/minh-ouddom-panha-cv.pdf" download="Minh_Ouddom_Panha_CV.pdf" class="inline-flex items-center gap-3 rounded-lg bg-emerald-400 px-4 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-emerald-300">
                         <i class="fa-solid fa-download"></i>
-                        <span>CV</span>
+                        <span>Download CV</span>
                     </a>
                 </div>
             </div>
 
-            <form action="mailto:minh.oudompanha@example.com" method="post" enctype="text/plain" class="rounded-lg border border-emerald-900/60 bg-slate-900/90 p-6 shadow-2xl shadow-emerald-950/30 md:p-8">
+            <form id="contact-form" class="rounded-lg border border-emerald-900/60 bg-slate-900/90 p-6 shadow-2xl shadow-emerald-950/30 md:p-8" novalidate>
                 <div class="grid gap-5 sm:grid-cols-2">
                     <label class="block">
                         <span class="mb-2 block text-sm font-medium text-slate-300">Name</span>
-                        <input type="text" name="name" required class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Your name">
+                        <input type="text" name="name" autocomplete="name" required aria-required="true" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Your name">
                     </label>
 
                     <label class="block">
                         <span class="mb-2 block text-sm font-medium text-slate-300">Email</span>
-                        <input type="email" name="email" required class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="you@example.com">
+                        <input type="email" name="email" autocomplete="email" required aria-required="true" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="you@example.com">
                     </label>
                 </div>
 
                 <label class="mt-5 block">
                     <span class="mb-2 block text-sm font-medium text-slate-300">Subject</span>
-                    <input type="text" name="subject" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Project or opportunity">
+                    <input type="text" name="subject" required aria-required="true" class="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Project or opportunity">
                 </label>
 
                 <label class="mt-5 block">
                     <span class="mb-2 block text-sm font-medium text-slate-300">Message</span>
-                    <textarea name="message" rows="5" required class="w-full resize-none rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Write your message"></textarea>
+                    <textarea name="message" rows="5" required aria-required="true" class="w-full resize-none rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20" placeholder="Write your message"></textarea>
                 </label>
 
                 <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-lg bg-emerald-400 px-5 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-1 hover:bg-emerald-300 sm:w-auto">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>Send Message</span>
                 </button>
+                <p id="contact-form-feedback" class="mt-4 text-sm leading-6 text-slate-300" role="status" aria-live="polite"></p>
             </form>
         </div>
     </section>
 
-    <script>
+<script>
         const menuToggle = document.getElementById("menu-toggle");
         const mobileMenu = document.getElementById("mobile-menu");
         const themeToggle = document.getElementById("theme-toggle");
         const root = document.documentElement;
 
         menuToggle.addEventListener("click", () => {
+            const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+            menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+            menuToggle.setAttribute("aria-label", isExpanded ? "Open menu" : "Close menu");
             mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute("aria-label", "Open menu");
+            });
         });
 
         themeToggle.addEventListener("click", () => {
             root.classList.toggle("dark");
+        });
+
+        const contactForm = document.getElementById("contact-form");
+        const formFeedback = document.getElementById("contact-form-feedback");
+
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            formFeedback.textContent = "";
+
+            if (!contactForm.reportValidity()) {
+                formFeedback.textContent = "Please complete each field with a valid email address.";
+                return;
+            }
+
+            const formData = new FormData(contactForm);
+            const senderName = String(formData.get("name")).trim();
+            const senderEmail = String(formData.get("email")).trim();
+            const subject = String(formData.get("subject")).trim().replace(/[\r\n]+/g, " ");
+            const message = String(formData.get("message")).trim();
+
+            if (!senderName || !senderEmail || !subject || !message) {
+                formFeedback.textContent = "Please complete all fields before preparing your message.";
+                return;
+            }
+
+            const body = "Name: " + senderName + "\nEmail: " + senderEmail + "\n\n" + message;
+            const mailto = "mailto:minh.ouddompanha@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+            formFeedback.textContent = "This site does not send messages directly. Your email app will open with a prepared draft; review it and press Send there.";
+            window.location.href = mailto;
         });
     </script>
 </body>
