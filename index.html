@@ -348,6 +348,7 @@
         /* Keep technology logos in their original brand colors in dark mode. */
         html.dark [class~="dark:invert"],
         html.dark [class~="dark:brightness-0"] { filter: none !important; }
+        html.dark #skills img[alt="Render logo"] { filter: brightness(0) invert(1); }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
@@ -457,36 +458,54 @@
                 </div>
             </div>
 
-            <div class="min-h-[250px] rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
-                <h3 class="mb-5 text-center text-lg font-semibold">Frameworks</h3>
-                <div class="mt-4 flex flex-wrap justify-center gap-5">
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-tailwindcss-original colored mb-2 block text-4xl"></i><p class="font-medium">Tailwind</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-laravel-original colored mb-2 block text-4xl"></i><p class="font-medium">Laravel</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-react-original colored mb-2 block text-4xl"></i><p class="font-medium">React</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-nodejs-plain-wordmark colored mb-2 block text-4xl"></i><p class="font-medium">Node.js</p></div>
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">Frameworks &amp; Libraries</h3>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-react-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">React</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-laravel-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Laravel</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-tailwindcss-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Tailwind CSS</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-nodejs-plain-wordmark colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Node.js</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-vitejs-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Vite</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-streamlit-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Streamlit</p></div>
+                </div>
+            </div>
+
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+                <h3 class="mb-5 text-center text-lg font-semibold">AI &amp; Data Science</h3>
+                <div class="flex flex-wrap justify-center gap-5">
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-tensorflow-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">TensorFlow</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-keras-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Keras</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-numpy-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">NumPy</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-pandas-original colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Pandas</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-matplotlib-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Matplotlib</p></div>
                 </div>
             </div>
 
             <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
                 <h3 class="mb-5 text-center text-lg font-semibold">Databases</h3>
                 <div class="flex flex-wrap justify-center gap-5">
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-postgresql-plain colored mb-2 block text-4xl dark:brightness-0 dark:invert" aria-hidden="true"></i><p class="font-medium">PostgreSQL</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-mysql-plain colored mb-2 block text-4xl dark:brightness-0 dark:invert" aria-hidden="true"></i><p class="font-medium">MySQL</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-supabase-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Supabase</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-postgresql-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">PostgreSQL</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-mysql-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">MySQL</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-sqlite-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">SQLite</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-supabase-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Supabase</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="fa-solid fa-database text-gray-700 dark:text-gray-200 mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">IndexedDB</p></div>
                 </div>
             </div>
 
-            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
-                <h3 class="mb-5 text-center text-lg font-semibold">Tools</h3>
+            <div class="rounded-2xl bg-white p-8 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800 md:col-span-2">
+                <h3 class="mb-5 text-center text-lg font-semibold">Tools &amp; Platforms</h3>
                 <div class="flex flex-wrap justify-center gap-5">
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-git-plain colored mb-2 block text-4xl"></i><p class="font-medium">Git</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-github-original mb-2 block text-4xl text-gray-900 dark:text-white"></i><p class="font-medium">GitHub</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-figma-plain colored mb-2 block text-4xl"></i><p class="font-medium">Figma</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-amazonwebservices-plain-wordmark colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">AWS</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-vercel-original mb-2 block text-4xl text-gray-900 dark:text-white" aria-hidden="true"></i><p class="font-medium">Vercel</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/render.svg" alt="Render logo" class="mx-auto mb-2 block h-10 w-10 object-contain dark:invert"><p class="font-medium">Render</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/cloudinary.svg" alt="Cloudinary logo" class="mx-auto mb-2 block h-10 w-10 object-contain"><p class="font-medium">Cloudinary</p></div>
-                    <div class="w-24 rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/teachable-machine.png" alt="Teachable Machine logo" class="mx-auto mb-2 block h-10 w-10 rounded-lg object-contain"><p class="font-medium">Teachable<br>Machine</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-git-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Git</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-github-original text-gray-900 dark:text-white mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">GitHub</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-vscode-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">VS Code</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-figma-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Figma</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-vercel-original text-gray-900 dark:text-white mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Vercel</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/render.svg" alt="Render logo" class="mb-2 block h-10 w-10 object-contain"><p class="font-medium">Render</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/cloudinary.svg" alt="Cloudinary logo" class="mb-2 block h-10 w-10 object-contain"><p class="font-medium">Cloudinary</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-cloudflare-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Cloudflare</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-googlecolab-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Google Colab</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><i class="devicon-jupyter-plain colored mb-2 block text-4xl" aria-hidden="true"></i><p class="font-medium">Jupyter Notebook</p></div>
+                    <div class="w-24 h-28 flex flex-col items-center justify-center rounded-xl bg-gray-100 px-3 py-4 text-center shadow transition duration-300 hover:-translate-y-1 hover:scale-105 dark:bg-slate-700"><img src="assets/teachable-machine.png" alt="Teachable Machine logo" class="mb-2 block h-10 w-10 object-contain"><p class="font-medium">Teachable Machine</p></div>
                 </div>
             </div>
         </div>
