@@ -28,7 +28,12 @@
             50% { box-shadow: 0 0 24px rgba(34, 211, 238, 0.25); }
         }
 
-        :root { scroll-padding-top: 6rem; }
+        :root {
+            --motion-ease: cubic-bezier(.22, 1, .36, 1);
+            --motion-fast: 260ms;
+            --motion-base: 620ms;
+            scroll-padding-top: 6rem;
+        }
         section[id] { scroll-margin-top: 6rem; }
 
         @keyframes heroEnter {
@@ -37,8 +42,23 @@
         }
 
         .hero-sequence > * {
-            animation: heroEnter 620ms cubic-bezier(.22, 1, .36, 1) both;
+            animation: heroEnter var(--motion-base) var(--motion-ease) both;
             animation-delay: calc(var(--hero-order, 0) * 85ms);
+        }
+
+        nav { animation: navEnter 520ms var(--motion-ease) both; }
+        @keyframes navEnter {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-sequence h1 {
+            animation-name: heroNameReveal;
+            animation-duration: 760ms;
+        }
+        @keyframes heroNameReveal {
+            from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(15px); }
+            to { opacity: 1; clip-path: inset(0); transform: translateY(0); }
         }
 
         .hero-photo {
@@ -51,16 +71,40 @@
         }
 
         [data-reveal] {
-            transition: opacity 620ms cubic-bezier(.22, 1, .36, 1),
-                        transform 620ms cubic-bezier(.22, 1, .36, 1);
+            transition: opacity var(--motion-base) var(--motion-ease),
+                        transform var(--motion-base) var(--motion-ease),
+                        clip-path 760ms var(--motion-ease);
             transition-delay: var(--reveal-delay, 0ms);
         }
 
+        html.motion-ready [data-reveal="heading"]:not(.is-visible) {
+            clip-path: inset(0 0 100% 0);
+            transform: translateY(10px);
+        }
+        html.motion-ready [data-reveal="gallery"]:not(.is-visible) img,
+        html.motion-ready [data-reveal="project"]:not(.is-visible) > div:first-child img,
+        html.motion-ready [data-reveal="experience"]:not(.is-visible) img,
+        html.motion-ready [data-reveal="competition"]:not(.is-visible) img {
+            clip-path: inset(0 0 100% 0);
+            transform: scale(1.025);
+        }
+        [data-reveal="gallery"] img,
+        [data-reveal="project"] > div:first-child img,
+        [data-reveal="experience"] img,
+        [data-reveal="competition"] img {
+            transition: clip-path 900ms var(--motion-ease), transform 550ms var(--motion-ease);
+        }
+        [data-reveal="gallery"].is-visible img,
+        [data-reveal="project"].is-visible > div:first-child img,
+        [data-reveal="experience"].is-visible img,
+        [data-reveal="competition"].is-visible img { clip-path: inset(0); }
+
         #projects article, #founder figure, #experience article, #competition article,
         #skills .grid > div {
-            transition: transform 300ms cubic-bezier(.22, 1, .36, 1),
-                        box-shadow 300ms cubic-bezier(.22, 1, .36, 1),
-                        opacity 620ms cubic-bezier(.22, 1, .36, 1);
+            transition: transform 300ms var(--motion-ease),
+                        box-shadow 300ms var(--motion-ease),
+                        opacity var(--motion-base) var(--motion-ease),
+                        outline-color 260ms ease;
         }
 
         html body #projects article:hover,
@@ -69,13 +113,22 @@
         html body #competition article:hover,
         html body #skills .grid > div:hover { transform: translateY(-7px); }
 
+        #projects article {
+            outline: 1px solid transparent;
+            outline-offset: -1px;
+        }
+        #projects article:hover { outline-color: rgb(34 211 238 / 0.28); }
+        html.dark #projects article:hover { outline-color: #404040; }
+
         #projects article img, #founder figure img, #competition article img,
-        #experience article img { transition: transform 550ms cubic-bezier(.22, 1, .36, 1); }
+        #experience article img {
+            transition: clip-path 900ms var(--motion-ease), transform 550ms var(--motion-ease);
+        }
 
         #projects article:hover img, #founder figure:hover img,
         #competition article:hover img, #experience article:hover img { transform: scale(1.04); }
 
-        #skills .grid > div > div > div { transition: transform 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 260ms ease; }
+        #skills .grid > div > div > div { transition: transform var(--motion-fast) var(--motion-ease), box-shadow var(--motion-fast) ease; }
         #skills .grid > div > div > div:hover { transform: translateY(-4px) scale(1.035); box-shadow: 0 10px 18px rgb(15 23 42 / 0.12); }
         #skills .grid > div > div > div i, #skills .grid > div > div > div img { transition: transform 260ms cubic-bezier(.22, 1, .36, 1); }
         #skills .grid > div > div > div:hover i, #skills .grid > div > div > div:hover img { transform: scale(1.05); }
@@ -92,8 +145,21 @@
         #mobile-menu:not(.hidden) { opacity: 0; transform: translateY(-8px); }
         #mobile-menu.menu-open { opacity: 1; transform: translateY(0); }
         nav a[aria-current="location"] span::after { width: 100%; }
+        nav a[aria-current="location"] span { color: #0891b2; }
+        html.dark nav a[aria-current="location"] span { color: #F5F5F5; }
         #contact-form-feedback:not(:empty) { animation: heroEnter 260ms ease-out both; }
         a:active, button:active { transform: scale(.98); }
+
+        ::view-transition-group(root) { animation-duration: 480ms; }
+        ::view-transition-old(root) { animation: themeFadeOut 220ms ease both; }
+        ::view-transition-new(root) {
+            animation: themeCircleReveal 520ms var(--motion-ease) both;
+        }
+        @keyframes themeFadeOut { to { opacity: 0; } }
+        @keyframes themeCircleReveal {
+            from { clip-path: circle(0 at var(--theme-x, 50%) var(--theme-y, 50%)); }
+            to { clip-path: circle(var(--theme-radius, 150%) at var(--theme-x, 50%) var(--theme-y, 50%)); }
+        }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto !important; }
@@ -105,6 +171,9 @@
                 transition-delay: 0ms !important;
             }
             html.motion-ready [data-reveal]:not(.is-visible) { opacity: 1; transform: none; }
+            html.motion-ready [data-reveal="heading"]:not(.is-visible) { clip-path: none; }
+            html.motion-ready [data-reveal] img { clip-path: none; }
+            ::view-transition-group(root), ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
         }
 
         /* Neutral charcoal palette for dark mode only. */
@@ -539,8 +608,29 @@
             link.addEventListener("click", closeMobileMenu);
         });
 
+        const toggleTheme = () => root.classList.toggle("dark");
         themeToggle.addEventListener("click", () => {
-            root.classList.toggle("dark");
+            const canAnimateTheme = !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                && typeof document.startViewTransition === "function";
+            if (!canAnimateTheme) {
+                toggleTheme();
+                return;
+            }
+
+            const buttonRect = themeToggle.getBoundingClientRect();
+            const originX = buttonRect.left + buttonRect.width / 2;
+            const originY = buttonRect.top + buttonRect.height / 2;
+            const farthestCorner = Math.max(
+                Math.hypot(originX, originY),
+                Math.hypot(window.innerWidth - originX, originY),
+                Math.hypot(originX, window.innerHeight - originY),
+                Math.hypot(window.innerWidth - originX, window.innerHeight - originY)
+            );
+
+            root.style.setProperty("--theme-x", `${originX}px`);
+            root.style.setProperty("--theme-y", `${originY}px`);
+            root.style.setProperty("--theme-radius", `${farthestCorner}px`);
+            document.startViewTransition(toggleTheme);
         });
 
         const contactForm = document.getElementById("contact-form");
@@ -589,10 +679,19 @@
             }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
 
             motionTargets.forEach((target) => {
-                target.setAttribute("data-reveal", "");
+                const revealType = target.matches("h2") ? "heading"
+                    : target.matches("#founder figure") ? "gallery"
+                    : target.matches("#projects article") ? "project"
+                    : target.matches("#competition article") ? "competition"
+                    : target.matches("#experience article") ? "experience"
+                    : target.matches("#skills .grid > div > div > div") ? "skill-tile"
+                    : target.matches("#skills .grid > div") ? "skill-card"
+                    : "content";
+                target.setAttribute("data-reveal", revealType);
                 const siblings = Array.from(target.parentElement.children).filter((item) => motionTargetSet.has(item));
                 const siblingIndex = siblings.indexOf(target);
-                target.style.setProperty("--reveal-delay", `${Math.min(Math.max(siblingIndex, 0), 4) * 75}ms`);
+                const staggerStep = revealType === "gallery" || revealType === "project" || revealType === "skill-tile" ? 90 : 75;
+                target.style.setProperty("--reveal-delay", `${Math.min(Math.max(siblingIndex, 0), 4) * staggerStep}ms`);
                 const bounds = target.getBoundingClientRect();
                 if (bounds.bottom >= 0 && bounds.top <= window.innerHeight) target.classList.add("is-visible");
                 else revealObserver.observe(target);
