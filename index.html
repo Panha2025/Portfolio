@@ -41,28 +41,34 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-sequence > * {
+        html.motion-ready .hero-sequence > * {
             animation: heroEnter var(--motion-base) var(--motion-ease) both;
             animation-delay: calc(var(--hero-order, 0) * 85ms);
         }
 
-        nav { animation: navEnter 520ms var(--motion-ease) both; }
+        html.motion-ready nav { animation: navEnter 520ms var(--motion-ease) both; }
         @keyframes navEnter {
             from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-sequence h1 {
-            animation-name: heroNameReveal;
-            animation-duration: 760ms;
+        .hero-sequence h1.kinetic-name { animation: none; perspective: 720px; }
+        .kinetic-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: .08em; margin-block: -.08em; }
+        .kinetic-letter { display: inline-block; transform-origin: 50% 100%; }
+        html.motion-ready .kinetic-letter { animation: nameLetterReveal 880ms var(--motion-ease) both; animation-delay: calc(115ms + var(--letter-order, 0) * 26ms); }
+        @keyframes nameLetterReveal {
+            from { opacity: 0; transform: translate3d(0, 105%, -24px) rotateX(-42deg); }
+            to { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0); }
         }
         @keyframes heroNameReveal {
             from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(15px); }
             to { opacity: 1; clip-path: inset(0); transform: translateY(0); }
         }
 
-        .hero-photo {
-            animation: heroEnter 760ms cubic-bezier(.22, 1, .36, 1) 220ms both;
+        html.motion-ready .hero-photo img { animation: profileReveal 1050ms var(--motion-ease) 260ms backwards; }
+        @keyframes profileReveal {
+            from { clip-path: circle(0 at 50% 50%); transform: perspective(850px) rotateY(-16deg) scale(.84); }
+            to { clip-path: circle(72% at 50% 50%); transform: perspective(850px) rotateY(0) scale(1); }
         }
 
         html.motion-ready [data-reveal]:not(.is-visible) {
@@ -78,9 +84,13 @@
         }
 
         html.motion-ready [data-reveal="heading"]:not(.is-visible) {
-            clip-path: inset(0 0 100% 0);
-            transform: translateY(10px);
+            clip-path: none;
+            transform: none;
         }
+        .kinetic-heading .heading-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: .08em; margin-block: -.08em; }
+        .heading-word-inner { display: inline-block; transform-origin: 50% 100%; }
+        html.motion-ready [data-reveal="heading"]:not(.is-visible) .heading-word-inner { opacity: 0; transform: translateY(110%) rotateX(-24deg); }
+        html.motion-ready [data-reveal="heading"].is-visible .heading-word-inner { opacity: 1; transform: translateY(0) rotateX(0); transition: opacity 520ms var(--motion-ease), transform 720ms var(--motion-ease); transition-delay: var(--word-delay, 0ms); }
         html.motion-ready [data-reveal="gallery"]:not(.is-visible) img,
         html.motion-ready [data-reveal="project"]:not(.is-visible) > div:first-child img,
         html.motion-ready [data-reveal="experience"]:not(.is-visible) img,
@@ -98,6 +108,14 @@
         [data-reveal="project"].is-visible > div:first-child img,
         [data-reveal="experience"].is-visible img,
         [data-reveal="competition"].is-visible img { clip-path: inset(0); }
+
+        html.motion-ready #projects article[data-reveal="project"]:not(.is-visible) > div:first-child img { clip-path: inset(0 0 100% 0); transform: scale(1.06) translateY(8px); }
+        html.motion-ready #projects article:nth-child(3n + 1)[data-reveal="project"]:not(.is-visible) > div:first-child img { clip-path: inset(0 100% 0 0); }
+        html.motion-ready #projects article:nth-child(3n + 2)[data-reveal="project"]:not(.is-visible) > div:first-child img { clip-path: inset(0 0 0 100%); }
+        html.motion-ready #projects article:nth-child(3n)[data-reveal="project"]:not(.is-visible) > div:first-child img { clip-path: inset(100% 0 0 0); }
+        #projects article > div:nth-child(2) { position: relative; z-index: 2; transition: opacity 560ms var(--motion-ease), transform 620ms var(--motion-ease); }
+        html.motion-ready #projects article[data-reveal="project"]:not(.is-visible) > div:nth-child(2) { opacity: 0; transform: translateY(12px); }
+        html.motion-ready #projects article[data-reveal="project"].is-visible > div:nth-child(2) { transition-delay: 130ms; }
 
         #projects article, #founder figure, #experience article, #competition article,
         #skills .grid > div {
@@ -119,6 +137,60 @@
         }
         #projects article:hover { outline-color: rgb(34 211 238 / 0.28); }
         html.dark #projects article:hover { outline-color: #404040; }
+
+        #projects .project-card { position: relative; transform-style: preserve-3d; --tilt-x: 0deg; --tilt-y: 0deg; --pointer-x: 50%; --pointer-y: 50%; transition: transform 620ms var(--motion-ease), box-shadow 420ms var(--motion-ease), outline-color 260ms ease; }
+        #projects .project-card::after { content: ""; position: absolute; z-index: 3; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgb(255 255 255 / .14), transparent 46%); transition: opacity 360ms ease; }
+        html.dark #projects .project-card::after { background: radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgb(255 255 255 / .08), transparent 48%); }
+        #projects .project-card > div { position: relative; z-index: 1; }
+        #projects .project-card:hover { transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-3px); }
+        #projects .project-card:hover { will-change: transform; }
+        #projects .project-card:hover::after { opacity: 1; }
+        #projects .project-card > div:first-child { transform: translateZ(14px); transform-style: preserve-3d; }
+        #projects .project-card > div:first-child img { transition: clip-path 900ms var(--motion-ease), transform 650ms var(--motion-ease); }
+        #projects .project-card:hover > div:first-child img { transform: translateZ(9px) scale(1.035); }
+        #projects .project-card a i { transition: transform 360ms var(--motion-ease); }
+        #projects .project-card a:hover i { transform: translateX(4px) rotate(-5deg); }
+
+        #skills .grid > div > div > div { --tilt-x: 0deg; --tilt-y: 0deg; --pointer-x: 50%; --pointer-y: 50%; transform-style: preserve-3d; transition: transform 420ms var(--motion-ease), box-shadow 260ms ease; }
+        #skills .grid > div > div > div:hover { transform: perspective(650px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-3px); }
+        #skills .grid > div > div > div i, #skills .grid > div > div > div img { transition: transform 420ms var(--motion-ease); }
+        #skills .grid > div > div > div:hover i, #skills .grid > div > div > div:hover img { transform: translateZ(10px) scale(1.08); }
+
+        #vendora-gallery { --gallery-progress: 1; }
+        #vendora-gallery figure { transform-origin: 50% 50%; backface-visibility: hidden; transition: transform 0ms linear; }
+        #primary-navigation { position: relative; }
+        #nav-indicator { position: absolute; left: 0; width: 0; height: 2px; border-radius: 999px; background: #0891b2; opacity: 0; pointer-events: none; transform: translateX(0); transition: transform 680ms cubic-bezier(.2, 1.35, .35, 1), width 560ms var(--motion-ease), top 300ms var(--motion-ease), opacity 180ms ease; }
+        html.dark #nav-indicator { background: #A3A3A3; }
+        nav a[aria-current="location"] span::after { width: 0; }
+        #primary-navigation a span::after { width: 0 !important; }
+        nav a[aria-current="location"] span { color: inherit; }
+        html.dark nav a[aria-current="location"] span { color: #F5F5F5; }
+        #nav-indicator.is-positioned { opacity: 1; }
+        html.motion-ready #mobile-menu li { opacity: 0; transform: translateY(-7px); transition: opacity 300ms var(--motion-ease), transform 400ms var(--motion-ease); transition-delay: calc(var(--menu-order, 0) * 38ms); }
+        html.motion-ready #mobile-menu.menu-open li { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 767px) {
+            #nav-indicator { display: none; }
+            html.motion-ready #mobile-menu li { transition-delay: calc(var(--menu-order, 0) * 28ms); }
+        }
+        @media (min-width: 768px) {
+            html.motion-ready #mobile-menu li { opacity: 1; transform: none; transition-delay: 0ms; }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #vendora-gallery figure { transform: none !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #vendora-gallery figure { transform: none !important; }
+            #projects .project-card, #skills .grid > div > div > div { will-change: auto; }
+        }
+        @media (hover: none) {
+            html body #projects article:hover, html body #founder figure:hover,
+            html body #experience article:hover, html body #competition article:hover,
+            html body #skills .grid > div:hover, #skills .grid > div > div > div:hover { transform: none; }
+            #projects article:hover img, #founder figure:hover img, #experience article:hover img,
+            #competition article:hover img, #skills .grid > div > div > div:hover i,
+            #skills .grid > div > div > div:hover img, .hero-photo .group:hover img { transform: none; }
+        }
 
         #projects article img, #founder figure img, #competition article img,
         #experience article img {
@@ -284,13 +356,14 @@
             <a href="#home" class="shrink-0 text-xl font-semibold tracking-wide text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:text-white dark:hover:text-cyan-300 md:text-2xl">My Portfolio</a>
 
             <div id="mobile-menu" class="hidden flex-1 md:block">
-                <ul class="flex flex-col items-center gap-3 rounded-2xl bg-slate-50 p-4 text-center md:flex-row md:flex-nowrap md:justify-center md:gap-5 md:bg-transparent md:p-0 lg:gap-8 dark:bg-slate-800 md:dark:bg-transparent">
+        <ul id="primary-navigation" class="flex flex-col items-center gap-3 rounded-2xl bg-slate-50 p-4 text-center md:flex-row md:flex-nowrap md:justify-center md:gap-5 md:bg-transparent md:p-0 lg:gap-8 dark:bg-slate-800 md:dark:bg-transparent">
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#home"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Home</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#skills"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Skills</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#projects"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Projects</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#experience"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Experience</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#competition"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Competitions</span></a></li>
                     <li><a class="group block rounded-lg px-3 py-2 text-lg transition duration-300 hover:-translate-y-0.5 hover:text-cyan-600 dark:hover:text-cyan-300" href="#contact"><span class="relative whitespace-nowrap after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-300 group-hover:after:w-full">Contact</span></a></li>
+                    <li id="nav-indicator" aria-hidden="true"></li>
                 </ul>
             </div>
 
@@ -314,7 +387,7 @@
                 <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                 Founder of Vendora
             </p>
-            <h1 style="--hero-order: 1" class="mb-4 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">Minh Ouddom Panha</h1>
+            <h1 style="--hero-order: 1" class="mb-4 max-w-3xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white" aria-label="Minh Ouddom Panha">Minh Ouddom Panha</h1>
             <p style="--hero-order: 2" class="mb-5 text-lg font-semibold text-cyan-700 dark:text-cyan-300 md:text-xl">Founder of Vendora <span aria-hidden="true">|</span> ICT Student <span aria-hidden="true">|</span> Aspiring Software Engineer</p>
             <p style="--hero-order: 3" class="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">I’m interested in technology, software development, and entrepreneurship, and I enjoy building practical solutions for everyday needs. I founded Vendora, a Cambodian marketplace connecting buyers and sellers of new and second-hand products.</p>
             <div style="--hero-order: 4" class="mt-8 flex flex-wrap gap-4">
@@ -331,7 +404,7 @@
         <div class="hero-photo flex justify-center lg:justify-end">
             <div class="group relative">
                 <div class="absolute -inset-4 rounded-full border border-cyan-200 bg-white/70 shadow-2xl shadow-slate-300 transition duration-500 group-hover:-translate-y-2 group-hover:border-emerald-300 dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/30"></div>
-                <img src="Professional%20Pic.jpg" alt="Minh Ouddom Panha" class="relative h-72 w-72 animate-[float_4s_ease-in-out_infinite] rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 32%;">
+            <img src="Professional%20Pic.jpg" alt="Minh Ouddom Panha" class="relative h-72 w-72 rounded-full object-cover shadow-2xl ring-8 ring-white transition duration-500 group-hover:scale-105 group-hover:ring-cyan-200 md:h-80 md:w-80 dark:ring-slate-800 dark:group-hover:ring-cyan-900" style="object-position: center 32%;">
             </div>
         </div>
     </div>
@@ -346,16 +419,16 @@
         </div>
         <div class="rounded-2xl bg-slate-50 p-6 shadow-lg dark:bg-slate-900 md:p-8">
             <p class="mx-auto max-w-4xl text-center text-base leading-8 text-slate-600 dark:text-slate-300">Founded Vendora, a Cambodian online marketplace connecting buyers and sellers of new and second-hand products. I lead the platform's development, collaborate with local businesses, and promote the startup through events and partnerships.</p>
-            <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+            <div id="vendora-gallery" class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <figure data-gallery-photo class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
                     <img src="1%20Vendora%20Booth.jpg" alt="Vendora booth at a university event, photo one" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
                     <figcaption class="sr-only">Vendora booth photo 1 of 3</figcaption>
                 </figure>
-                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+                <figure data-gallery-photo class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
                     <img src="2%20Vendora%20Booth.jpg" alt="Visitors viewing products at the Vendora booth, photo two" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
                     <figcaption class="sr-only">Vendora booth photo 2 of 3</figcaption>
                 </figure>
-                <figure class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
+                <figure data-gallery-photo class="group overflow-hidden rounded-xl bg-slate-200 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800">
                     <img src="3%20Vendora%20Booth.jpg" alt="Minh presenting Vendora marketplace products at a booth, photo three" loading="lazy" decoding="async" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72">
                     <figcaption class="sr-only">Vendora booth photo 3 of 3</figcaption>
                 </figure>
@@ -434,15 +507,15 @@
             <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Schedule%20Planner.jpg" alt="MyPlanner schedule and task manager preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"></div>
             <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">MyPlanner — Smart Schedule &amp; Task Manager</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A smart planner for managing tasks, schedules, and reminders.</p><a href="https://github.com/Panha2025/Schedule_Tracker" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+        <article class="project-card flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
             <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="Bank.png" alt="Bank Management System project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
             <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Bank Management System</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A comprehensive solution for managing banking operations and customer data.</p><a href="https://github.com/Panha2025/Bank_Management" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+        <article class="project-card flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
             <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="AI.png" alt="AI Sign Language Translator project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
             <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">AI-Sign Language Translator</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A machine learning-based application for translating sign language to text and vice versa.</p><a href="https://github.com/Panha2025/AI-SignLanguage-Detector" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
-        <article class="flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
+        <article class="project-card flex flex-col overflow-hidden rounded-2xl bg-gray-50 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-slate-800">
             <div class="aspect-[16/10] overflow-hidden bg-gray-200"><img src="chatbot.png" alt="Movie ChatBOT project preview" loading="lazy" decoding="async" class="h-full w-full object-cover transition duration-500 hover:scale-105"></div>
             <div class="flex flex-1 flex-col p-6"><h3 class="mb-3 text-xl font-semibold">Movie-ChatBOT</h3><p class="mb-4 flex-1 leading-7 text-gray-600 dark:text-slate-300">A real-time chatbot application for movie recommendations.</p><a href="https://github.com/Panha2025/Movies-Chatbot" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 px-4 py-3 font-medium text-white transition duration-300 hover:-translate-y-1 hover:bg-gray-700 dark:bg-cyan-500 dark:text-slate-950 dark:hover:bg-cyan-400"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a></div>
         </article>
@@ -581,7 +654,46 @@
         const mobileMenu = document.getElementById("mobile-menu");
         const themeToggle = document.getElementById("theme-toggle");
         const root = document.documentElement;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         let menuCloseTimer;
+
+        mobileMenu.querySelectorAll("li").forEach((item, index) => item.style.setProperty("--menu-order", index));
+
+        const splitKineticText = (element, heading = false) => {
+            const text = element.textContent.trim();
+            element.replaceChildren();
+            if (heading) {
+                element.classList.add("kinetic-heading");
+                element.setAttribute("aria-label", text);
+            } else {
+                element.classList.add("kinetic-name");
+                element.setAttribute("aria-label", text);
+            }
+            let letterOrder = 0;
+            text.split(/(\s+)/).forEach((part) => {
+                if (/^\s+$/.test(part)) {
+                    element.append(document.createTextNode(part));
+                    return;
+                }
+                const word = document.createElement("span");
+                word.className = heading ? "heading-word" : "kinetic-word";
+                word.setAttribute("aria-hidden", "true");
+                Array.from(part).forEach((character) => {
+                    const letter = document.createElement("span");
+                    letter.className = heading ? "heading-word-inner" : "kinetic-letter";
+                    letter.textContent = character;
+                    if (!heading) letter.style.setProperty("--letter-order", letterOrder++);
+                    else letter.style.setProperty("--word-delay", `${Array.from(element.children).filter((child) => child.classList?.contains("heading-word")).length * 75}ms`);
+                    word.append(letter);
+                });
+                element.append(word);
+            });
+        };
+
+        const heroName = document.querySelector(".hero-sequence h1");
+        if (heroName) splitKineticText(heroName);
+        document.querySelectorAll("#founder h2, #skills h2, #projects h2, #competition h2, #experience h2, #contact h2")
+            .forEach((heading) => splitKineticText(heading, true));
 
         const closeMobileMenu = () => {
             mobileMenu.classList.remove("menu-open");
@@ -688,8 +800,6 @@
         const motionTargets = document.querySelectorAll(
             "#founder h2, #founder > div > div > p, #founder .rounded-2xl, #founder figure, #skills h2, #skills .grid > div, #skills .grid > div > div > div, #projects h2, #projects article, #competition h2, #competition article, #experience h2, #experience h3, #experience article, #contact > div > div, #contact form"
         );
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
         if (!reducedMotion && "IntersectionObserver" in window) {
             const motionTargetSet = new Set(motionTargets);
             const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -724,7 +834,24 @@
         }
 
         if ("IntersectionObserver" in window) {
-            const sectionLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+            const sectionLinks = Array.from(document.querySelectorAll('#primary-navigation a[href^="#"]'));
+            const navIndicator = document.getElementById("nav-indicator");
+            const updateNavIndicator = () => {
+                if (window.innerWidth < 768) {
+                    navIndicator.classList.remove("is-positioned");
+                    return;
+                }
+                const activeLink = sectionLinks.find((link) => link.getAttribute("aria-current") === "location") || sectionLinks[0];
+                const activeText = activeLink.querySelector("span");
+                const listBounds = activeLink.parentElement.parentElement.getBoundingClientRect();
+                const textBounds = activeText.getBoundingClientRect();
+                navIndicator.style.width = `${textBounds.width}px`;
+                navIndicator.style.top = `${textBounds.bottom - listBounds.top + 4}px`;
+                navIndicator.style.transform = `translateX(${textBounds.left - listBounds.left}px)`;
+                navIndicator.classList.add("is-positioned");
+            };
+
+            sectionLinks[0]?.setAttribute("aria-current", "location");
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (!entry.isIntersecting) return;
@@ -732,10 +859,97 @@
                         if (link.getAttribute("href") === `#${entry.target.id}`) link.setAttribute("aria-current", "location");
                         else link.removeAttribute("aria-current");
                     });
+                    requestAnimationFrame(updateNavIndicator);
                 });
             }, { rootMargin: "-18% 0px -68% 0px", threshold: 0 });
 
-            document.querySelectorAll("main section[id], body > section[id]").forEach((section) => sectionObserver.observe(section));
+            sectionLinks.forEach((link) => {
+                const section = document.getElementById(link.hash.slice(1));
+                if (section) sectionObserver.observe(section);
+            });
+            window.addEventListener("resize", updateNavIndicator, { passive: true });
+            requestAnimationFrame(updateNavIndicator);
+        }
+
+        const gallery = document.getElementById("vendora-gallery");
+        const galleryPhotos = gallery ? Array.from(gallery.querySelectorAll("[data-gallery-photo]")) : [];
+        const desktopGallery = window.matchMedia("(min-width: 1024px) and (hover: hover) and (pointer: fine)");
+        let galleryFrame = 0;
+        let galleryLayout = null;
+        const measureGalleryLayout = () => {
+            if (!gallery || galleryPhotos.length !== 3) return;
+            galleryPhotos.forEach((photo) => { photo.style.transform = ""; });
+            const galleryBounds = gallery.getBoundingClientRect();
+            galleryLayout = {
+                centerX: galleryBounds.left + galleryBounds.width / 2,
+                centerY: galleryBounds.top + window.scrollY + galleryBounds.height / 2,
+                photos: galleryPhotos.map((photo) => {
+                    const bounds = photo.getBoundingClientRect();
+                    return { centerX: bounds.left + bounds.width / 2, centerY: bounds.top + window.scrollY + bounds.height / 2 };
+                })
+            };
+        };
+        const updateVendoraStory = () => {
+            galleryFrame = 0;
+            if (!gallery || reducedMotion || !desktopGallery.matches || galleryPhotos.length !== 3) {
+                galleryPhotos.forEach((photo) => { photo.style.transform = ""; photo.style.zIndex = ""; });
+                return;
+            }
+            if (!galleryLayout) measureGalleryLayout();
+            const galleryBounds = gallery.getBoundingClientRect();
+            const start = window.innerHeight * 0.92;
+            const finish = window.innerHeight * 0.43;
+            const progress = Math.max(0, Math.min(1, (start - galleryBounds.top) / (start - finish)));
+            const startingAngles = [-8, 3, 7];
+            const stackingOrder = [2, 3, 1];
+            galleryPhotos.forEach((photo, index) => {
+                const finalPosition = galleryLayout.photos[index];
+                const moveX = galleryLayout.centerX - finalPosition.centerX;
+                const moveY = galleryLayout.centerY - finalPosition.centerY;
+                const open = progress;
+                photo.style.zIndex = String(stackingOrder[index]);
+                photo.style.transform = `translate3d(${(moveX * (1 - open)).toFixed(1)}px, ${(moveY * (1 - open)).toFixed(1)}px, 0) perspective(900px) rotateY(${(startingAngles[index] * (1 - open)).toFixed(2)}deg) rotateX(${(3 * (1 - open)).toFixed(2)}deg) scale(${(0.84 + open * 0.16).toFixed(3)})`;
+            });
+        };
+        const requestGalleryUpdate = () => {
+            if (!galleryFrame) galleryFrame = requestAnimationFrame(updateVendoraStory);
+        };
+        window.addEventListener("scroll", requestGalleryUpdate, { passive: true });
+        window.addEventListener("resize", () => { galleryLayout = null; requestGalleryUpdate(); }, { passive: true });
+        requestGalleryUpdate();
+
+        const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+        if (!reducedMotion && finePointer.matches) {
+            document.querySelectorAll("#projects .project-card, #skills .grid > div > div > div").forEach((element) => {
+                let pointerFrame = 0;
+                let pointerX = 0;
+                let pointerY = 0;
+                const isProject = element.matches(".project-card");
+                const maxTilt = isProject ? 4 : 2.4;
+                element.addEventListener("pointermove", (event) => {
+                    pointerX = event.clientX;
+                    pointerY = event.clientY;
+                    if (pointerFrame) return;
+                    pointerFrame = requestAnimationFrame(() => {
+                        pointerFrame = 0;
+                        const bounds = element.getBoundingClientRect();
+                        const x = Math.max(0, Math.min(1, (pointerX - bounds.left) / bounds.width));
+                        const y = Math.max(0, Math.min(1, (pointerY - bounds.top) / bounds.height));
+                        element.style.setProperty("--tilt-x", `${((0.5 - y) * maxTilt * 2).toFixed(2)}deg`);
+                        element.style.setProperty("--tilt-y", `${((x - 0.5) * maxTilt * 2).toFixed(2)}deg`);
+                        element.style.setProperty("--pointer-x", `${(x * 100).toFixed(1)}%`);
+                        element.style.setProperty("--pointer-y", `${(y * 100).toFixed(1)}%`);
+                    });
+                }, { passive: true });
+                element.addEventListener("pointerleave", () => {
+                    cancelAnimationFrame(pointerFrame);
+                    pointerFrame = 0;
+                    element.style.setProperty("--tilt-x", "0deg");
+                    element.style.setProperty("--tilt-y", "0deg");
+                    element.style.setProperty("--pointer-x", "50%");
+                    element.style.setProperty("--pointer-y", "50%");
+                }, { passive: true });
+            });
         }
     </script>
 </body>
